@@ -5,6 +5,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>沙漠海豚</h1>
+    <div id='root'>
+        <h1>沙漠海豚</h1>
+        <script type='module'>
+            import { refreshShopList, bindShopInfoEvents } from './index.js';
+            async function bootstrap() {
+                await refreshShopList();
+                await bindShopInfoEvents();
+            }
+            bootstrap();
+        </script>
+    </div>
 </body>
 </html>
