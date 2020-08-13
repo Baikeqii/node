@@ -1,9 +1,11 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import './index.less';
+
 class ShopList extends Component {
 
     render() {
         return (
-            <div>soso</div>
+            <div className='shop_list_wrapper'>sossso</div>
         )
     }
 }

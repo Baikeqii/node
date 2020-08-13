@@ -31,6 +31,27 @@ module.exports = {
 				use: ['happypack/loader?id=happy-babel'],
 			},
 			{
+				test: /\.(less|css)$/,
+				use: [
+					'css-hot-loader',
+					'style-loader',
+					'css-loader',
+					{
+						loader: 'less-loader', // compiles Less to CSS
+						options: {
+							lessOptions: {
+								modifyVars: {
+									'primary-color': '#1890ff',
+									'link-color': '#1890ff',
+								},
+								javascriptEnabled: true
+							} 
+						
+						},
+					}
+				],
+			},
+			{
 				test: /\.(jpe?g|png|gif|svg)$/i,
 				use: [
 					'url-loader?limit=10000',
@@ -112,8 +133,9 @@ module.exports = {
 			loader: 'babel-loader',
 			options: {
 				babelrc: true,
-				cacheDirectory: true // 启用缓存
+				cacheDirectory: true, // 启用缓存
 			}
+
 		}])
 	],
 }
